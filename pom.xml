@@ -81,6 +81,19 @@
             <artifactId>allure-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.3.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
