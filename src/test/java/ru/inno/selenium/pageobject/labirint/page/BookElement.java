@@ -1,24 +1,25 @@
 package ru.inno.selenium.pageobject.labirint.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-// PageElements
+// https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/#page-component-objects
 public class BookElement {
 
-    private final WebElement element;
-
-    public BookElement(WebElement element) {
-        this.element = element;
-    }
+    @FindBy(css = ".btn-tocart.buy-link")
+    private WebElement addToCartButton;
+    @FindBy(css = ".product-card__price-current")
+    private WebElement bookPrice;
+    @FindBy(css = ".product-card__name")
+    private WebElement bookName;
 
     public void addToCart() {
-        element.findElement(By.cssSelector(".btn-tocart.buy-link")).click();
+        addToCartButton.click();
     }
 
     public void printInfo() {
-        String price = element.findElement(By.cssSelector(".product-card__price-current")).getText();
-        String title = element.findElement(By.cssSelector(".product-card__name")).getText();
+        String price = bookPrice.getText();
+        String title = bookName.getText();
         System.out.println(price + "\t" + title);
     }
 }

@@ -4,10 +4,15 @@ import io.github.bonigarcia.seljup.SeleniumJupiter;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.inno.selenium.pageobject.labirint.page.*;
+import org.openqa.selenium.support.PageFactory;
+import ru.inno.selenium.pageobject.labirint.page.BookElement;
+import ru.inno.selenium.pageobject.labirint.page.HeaderElement;
+import ru.inno.selenium.pageobject.labirint.page.MainPage;
+import ru.inno.selenium.pageobject.labirint.page.SearchResultPage;
 
 import java.util.List;
 
@@ -15,20 +20,27 @@ import java.util.List;
 @Feature("Поиск по сайту")
 @ExtendWith(SeleniumJupiter.class)
 public class LabirintTest {
-    @Story("Как пользователь, я могу искать товары на сайте, чтобы быстрее находить интересный мне товар")
-    @Test
-    public void booksTest(ChromeDriver driver) {
-        MainPage mainPage = new MainPage(driver);
-        SearchResultPage resultPage = new SearchResultPage(driver);
 
+    private MainPage mainPage;
+    private SearchResultPage resultPage;
+    private HeaderElement header;
+
+    @BeforeEach
+    public void setUp(ChromeDriver driver){
+        mainPage = PageFactory.initElements(driver, MainPage.class);
+        resultPage = PageFactory.initElements(driver, SearchResultPage.class);
+        header = PageFactory.initElements(driver, HeaderElement.class);
+    }
+
+    @Test
+    public void booksTest() {
         mainPage.open();
-        mainPage.getHeader().search("java");
+        header.search("java");
 
         List<BookElement> books = resultPage.getAllBooks();
         for (BookElement book : books) {
             book.printInfo();
             book.addToCart();
         }
-
     }
 }

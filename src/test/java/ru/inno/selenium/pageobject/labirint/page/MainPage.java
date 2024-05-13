@@ -3,10 +3,11 @@ package ru.inno.selenium.pageobject.labirint.page;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends BasePage {
+public class MainPage {
+    private WebDriver driver;
 
     public MainPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
 
     public void open() {
