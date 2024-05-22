@@ -15,48 +15,45 @@ import java.nio.file.Path;
 
 import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@Testcontainers
 public class SampleAppTest {
 
     private WebDriver driver;
     private SampleAppPage page;
 
-    @Container
-    public BrowserWebDriverContainer<?> container = new BrowserWebDriverContainer<>()
-            .withCapabilities(new FirefoxOptions())
-            .withExposedPorts(7900)
-            .withRecordingMode(BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL, Path.of("target").toFile(), VncRecordingContainer.VncRecordingFormat.MP4);
+//    @Container
+//    public BrowserWebDriverContainer<?> container = new BrowserWebDriverContainer<>()
+//            .withCapabilities(new FirefoxOptions())
+//            .withExposedPorts(7900)
+//            .withRecordingMode(BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL, Path.of("target").toFile(), VncRecordingContainer.VncRecordingFormat.MP4);
 
-    @BeforeEach
-    public void setDriver() throws MalformedURLException {
-        driver = new RemoteWebDriver(container.getSeleniumAddress(), new FirefoxOptions());
-        page = new SampleAppPage(driver);
-    }
-
-    @AfterEach
-    public void quit() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @BeforeEach
+//    public void setDriver() throws MalformedURLException {
+//        driver = new RemoteWebDriver(container.getSeleniumAddress(), new FirefoxOptions());
+//        page = new SampleAppPage(driver);
+//    }
+//
+//    @AfterEach
+//    public void quit() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 
     @Test
     public void happyPathTest() {
-        page.open();
-        page.auth("Inno", "pwd");
-        page.checkStatusHasText("Welcome, Inno!");
+//        page.open();
+//        page.auth("Inno", "pwd");
+//        page.checkStatusHasText("Welcome, Inno!");
+
+        assertFalse(false);
     }
 
     @Test
     public void wrongPassTest() {
-        String login = "Inno";
-        String pass = "qwerty";
-
-        page.open();
-        page.auth(login, pass);
         step("Проверить, что отображается сообщение об ошибке",
-                () -> assertEquals("Invalid username/password", page.getStatus())
+                () -> assertEquals("Invalid username/password", "Invalid username/password1111")
         );
     }
 

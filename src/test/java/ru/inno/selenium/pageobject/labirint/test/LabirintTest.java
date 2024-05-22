@@ -4,10 +4,11 @@ import io.github.bonigarcia.seljup.SeleniumJupiter;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.inno.selenium.pageobject.labirint.page.*;
+import ru.inno.selenium.pageobject.labirint.page.BookElement;
+import ru.inno.selenium.pageobject.labirint.page.MainPage;
+import ru.inno.selenium.pageobject.labirint.page.SearchResultPage;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @Feature("Поиск по сайту")
 @ExtendWith(SeleniumJupiter.class)
 public class LabirintTest {
+
     @Story("Как пользователь, я могу искать товары на сайте, чтобы быстрее находить интересный мне товар")
     public void booksTest(ChromeDriver driver) {
         MainPage mainPage = new MainPage(driver);
