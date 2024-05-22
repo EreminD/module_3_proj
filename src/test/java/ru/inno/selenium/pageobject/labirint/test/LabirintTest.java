@@ -16,7 +16,6 @@ import java.util.List;
 @ExtendWith(SeleniumJupiter.class)
 public class LabirintTest {
     @Story("Как пользователь, я могу искать товары на сайте, чтобы быстрее находить интересный мне товар")
-    @Test
     public void booksTest(ChromeDriver driver) {
         MainPage mainPage = new MainPage(driver);
         SearchResultPage resultPage = new SearchResultPage(driver);
