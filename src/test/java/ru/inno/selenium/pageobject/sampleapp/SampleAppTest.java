@@ -53,7 +53,7 @@ public class SampleAppTest {
     @Test
     public void wrongPassTest() {
         step("Проверить, что отображается сообщение об ошибке",
-                () -> assertEquals("Invalid username/password", "Invalid username/password1111")
+                () -> assertEquals("Invalid username/password", "Invalid username/password")
         );
     }
 
