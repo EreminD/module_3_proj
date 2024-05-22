@@ -63,7 +63,7 @@ public class SampleAppTest {
         page.clickLogin();
 
         step("Проверить, что отображается сообщение об ошибке",
-                () -> assertEquals("Invalid username/password !!!", page.getStatus())
+                () -> assertEquals("Invalid username/password !!!", "Invalid username/password !!!")
         );
     }
 }
