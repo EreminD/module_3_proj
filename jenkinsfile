@@ -1,0 +1,38 @@
+pipeline {
+    agent {
+        docker {
+            image 'rappdw/docker-java-python'
+        }
+    }
+    stages {
+        stage('Info'){
+            steps{
+                sh "docker ps -a"
+            }
+        }
+        stage('Git') {
+            steps {
+                checkout scmGit(branches: [[name: env.branch]], extensions: [[$class: 'WipeWorkspace']], userRemoteConfigs: [[url: 'https://github.com/EreminD/module_3_proj.git']])
+            }
+        }
+        stage('Install') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    script {
+                        def data = "branch=" + env.branch
+                        writeFile(file: 'allure-files/environment.properties', text: data)
+                    }
+                    allure includeProperties: false, jdk: '', results: [[path: 'allure-files']]
+                }
+            }
+        }
+    }
+}
