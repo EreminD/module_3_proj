@@ -51,20 +51,20 @@ public class SampleAppTest {
         assertFalse(false);
     }
 
-//    @Test
-//    public void wrongPassTest() {
-//        step("Проверить, что отображается сообщение об ошибке",
-//                () -> assertEquals("Invalid username/password", "Invalid username/password")
-//        );
-//    }
-//
-//    @Test
-//    public void blankLoginAndPass() {
-//        page.open();
-//        page.clickLogin();
-//
-//        step("Проверить, что отображается сообщение об ошибке",
-//                () -> assertEquals("Invalid username/password !!!", "Invalid username/password !!!")
-//        );
-//    }
+    @Test
+    public void wrongPassTest() {
+        step("Проверить, что отображается сообщение об ошибке",
+                () -> assertEquals("Invalid username/password", "Invalid username/password")
+        );
+    }
+
+    @Test
+    public void blankLoginAndPass() {
+        page.open();
+        page.clickLogin();
+
+        step("Проверить, что отображается сообщение об ошибке",
+                () -> assertEquals("Invalid username/password !!!", "Invalid username/password !!!")
+        );
+    }
 }

@@ -25,13 +25,13 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          ref: gh-pages
-          path: gh-pages
+          ref: allure-pages
+          path: allure-pages
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.7
         if: always()
         with:
-          gh_pages: gh-pages
+          gh_pages: allure-pages
           allure_results: allure-results
           allure_history: allure-history
       - name: Publish test report
@@ -39,7 +39,7 @@ jobs:
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
+          publish_branch: allure-pages
           publish_dir: allure-history
 
 
