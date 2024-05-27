@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon May 27 19:23:08 GMT 2024","Mon May 27 19:23:17 GMT 2024","8751","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","happyPathTest","happyPathTest()",""
+"passed","Mon May 27 19:22:14 GMT 2024","Mon May 27 19:22:59 GMT 2024","45122","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","blankLoginAndPass","blankLoginAndPass()",""
+"passed","Mon May 27 19:22:59 GMT 2024","Mon May 27 19:23:08 GMT 2024","8616","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","","ru.inno.selenium.pageobject.sampleapp.SampleAppTest","wrongPassTest","wrongPassTest()",""
